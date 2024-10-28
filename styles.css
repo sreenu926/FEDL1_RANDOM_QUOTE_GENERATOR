@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  vertical-align: baseline;
+}
+
+div {
+  position: relative;
+  z-index: 3;
+}
+
+body {
+  background-color: #445;
+  color: #678;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 450;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.footer {
+  width: 450px;
+  text-align: center;
+  display: block;
+  margin: 15px auto 30px auto;
+  font-size: 0.9em;
+  color: #fff;
+}
+.footer a {
+  font-weight: 560;
+  text-decoration: none;
+  color: #fff;
+}
+
+#quote-box {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  padding: 30px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  vertical-align: center;
+  background-color: #fff;
+  border-radius: 10%;
+  box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.5);
+}
+.quote-text {
+  text-align: center;
+  width: 450;
+  height: 450;
+  clear: both;
+  font-weight: 600;
+  font-size: 1.6em;
+  margin-top: 10px;
+}
+#quote-box .quote-text i {
+  font-size: 1.1em;
+  margin-right: 0.4em;
+}
+#quote-box .quote-author {
+  width: 450;
+  height: 450;
+  clear: both;
+  padding-top: 20px;
+  font-size: 1.1em;
+  text-align: justify;
+}
+#quote-box .buttons {
+  width: 450;
+  margin: 20px 0 0 0;
+  display: block;
+}
+
+#quote-box .buttons .button {
+  height: 38px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #353;
+  outline: none;
+  font-size: 0.9em;
+  padding: 8px 18px 6px 18px;
+  margin-top: 30px;
+  opacity: 1;
+  cursor: pointer;
+}
+#quote-box .buttons .button:hover {
+  opacity: 0.8;
+}
+#quote-box .buttons .button#tweet-quote,
+#quote-box .buttons .button#tumblr-quote {
+  float: left;
+  padding: 0px;
+  padding-top: 8px;
+  text-align: center;
+  font-size: 1.3em;
+  margin-right: 5px;
+  height: 30px;
+  width: 40px;
+}
+#quote-box .buttons .button#new-quote {
+  float: right;
+}
