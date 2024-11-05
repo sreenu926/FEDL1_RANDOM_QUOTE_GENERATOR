@@ -53,7 +53,8 @@ function getQuotes() {
 }
 
 /*
-4. The getRandomQuote function effectively selects a random quote from the quotesData array by generating a random index and using it to access the corresponding quote object.
+3. The getRandomQuote function effectively selects a random quote from the quotesData array by generating a random index and 
+    using it to access the corresponding quote object.
 */
 
 function getRandomQuote() {
