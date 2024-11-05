@@ -1,5 +1,5 @@
 /*
-Variable Declarations:
+1.Initial Setup: Variable Declarations:
     projectName: String variable storing the project name (random-quote-machine).
     quotesData: Global variable declared but not yet assigned a value. It will hold the fetched quotes data.
     colors: Array containing a list of color codes for background and text changes.
