@@ -64,7 +64,10 @@ function getRandomQuote() {
 }
 
 /*
-3. This getQuote() function is responsible for displaying a random quote with animations(fade-out and fade-in) and updating social media sharing links. It's triggered when: The document is ready (initial load) and The "New Quote" button is clicked. The background and button colors are also randomly changed for visual appeal.
+4. This getQuote() function is responsible for displaying a random quote with animations(fade-out and fade-in) and 
+    updating social media sharing links. It's triggered when: 
+    The document is ready (initial load) and The "New Quote" button is clicked. 
+    The background and button colors are also randomly changed for visual appeal.
 */
 
 function getQuote() {
