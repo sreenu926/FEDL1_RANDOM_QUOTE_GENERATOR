@@ -1,10 +1,9 @@
 /*
 Variable Declarations:
-
-projectName: String variable storing the project name (random-quote-machine).
-quotesData: Global variable declared but not yet assigned a value. It will hold the fetched quotes data.
-colors: Array containing a list of color codes for background and text changes.
-currentQuote, currentAuthor: Variables to store the currently displayed quote and author.
+    projectName: String variable storing the project name (random-quote-machine).
+    quotesData: Global variable declared but not yet assigned a value. It will hold the fetched quotes data.
+    colors: Array containing a list of color codes for background and text changes.
+    currentQuote, currentAuthor: Variables to store the currently displayed quote and author.
 */
 
 const projectName = "random-quote-machine";
@@ -32,7 +31,9 @@ var currentQuote = "",
   currentAuthor = "";
 
 /* 
-2. The getQuotes() function uses jQuery's AJAX functionality to fetch quotes data from a specified URL. It handles the JSON response and stores the data in a global variable for later use. The function returns a promise object, which is used to chain asynchronous operations.
+2. The getQuotes() function uses jQuery's AJAX functionality to fetch quotes data from a specified URL. 
+    It handles the JSON response and stores the data in a global variable for later use. 
+    The function returns a promise object, which is used to chain asynchronous operations.
 */
 
 function getQuotes() {
