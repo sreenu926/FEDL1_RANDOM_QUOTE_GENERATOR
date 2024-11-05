@@ -118,7 +118,7 @@ function getQuote() {
 }
 
 /* 
-Following $(document).ready() jQuery function ensures that the functions getQuotes() and getQuote() are executed 
+5. Following $(document).ready() jQuery function ensures that the functions getQuotes() and getQuote() are executed 
 only after the entire HTML document has been loaded. 
 This prevents JavaScript errors that might occur if elements or data are not yet available when the functions are called. 
 The .then() method is used to handle the promise returned by getQuotes(). 
