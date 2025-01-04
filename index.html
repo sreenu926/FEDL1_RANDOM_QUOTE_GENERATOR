@@ -6,19 +6,20 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
     />
-    <title>FEDL1: RANDOM QUOTE MACHINE</title>
+    <title>FEL1: RANDOM QUOTE GENERATOR</title>
   </head>
 
   <body>
-    <div id="wrapper">
-      <div id="quote-box">
-        <div class="quote-text">
-          <i class="fa fa-quote-left"> </i><span id="text"></span>
+    <div class="wrapper">
+      <div class="quote-box__container">
+        <div class="quote-box__quote-text">
+          <i class="fa fa-quote-left"></i>
+          <span id="text"></span>
         </div>
-        <div class="quote-author">- <span id="author"></span></div>
-        <div class="buttons">
+        <div class="quote-box__quote-author">- <span id="author"></span></div>
+        <div class="quote-box__buttons">
           <a
-            class="button"
+            class="quote-box__buttons__button"
             id="tweet-quote"
             title="Tweet this quote!"
             target="_top"
@@ -26,14 +27,16 @@
             <i class="fa fa-twitter"></i>
           </a>
           <a
-            class="button"
+            class="quote-box__buttons__button"
             id="tumblr-quote"
             title="Post this quote on tumblr!"
             target="_blank"
           >
             <i class="fa fa-tumblr"></i>
           </a>
-          <button class="button" id="new-quote">New quote</button>
+          <button class="quote-box__buttons__button" id="new-quote">
+            New quote
+          </button>
         </div>
       </div>
       <div class="footer">
