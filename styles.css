@@ -23,6 +23,18 @@ body {
   height: 100vh;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Ensure it takes full viewport height */
+  width: 100%; /* Occupy full width */
+  max-width: 960px; /* Set a maximum width for larger screens */
+  margin: 0 auto; /* Center the wrapper horizontally */
+  padding: 20px;
+}
+
 .footer {
   width: 450px;
   text-align: center;
@@ -31,54 +43,55 @@ body {
   font-size: 0.9em;
   color: #fff;
 }
+
 .footer a {
   font-weight: 560;
   text-decoration: none;
   color: #fff;
 }
 
-#quote-box {
+.quote-box__container {
   position: relative;
   width: 450px;
   height: 450px;
-  padding: 30px 30px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  vertical-align: center;
   background-color: #fff;
   border-radius: 10%;
   box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.5);
 }
-.quote-text {
+
+.quote-box__quote-text {
   text-align: center;
-  width: 450;
-  height: 450;
-  clear: both;
+  width: 100%; /* Changed to 100% for better responsiveness */
   font-weight: 600;
   font-size: 1.6em;
   margin-top: 10px;
 }
-#quote-box .quote-text i {
+
+.quote-box__quote-text i {
   font-size: 1.1em;
   margin-right: 0.4em;
 }
-#quote-box .quote-author {
-  width: 450;
-  height: 450;
-  clear: both;
+
+.quote-box__quote-author {
+  width: 100%; /* Changed to 100% for better responsiveness */
   padding-top: 20px;
   font-size: 1.1em;
-  text-align: justify;
-}
-#quote-box .buttons {
-  width: 450;
-  margin: 20px 0 0 0;
-  display: block;
+  text-align: right; /* Changed to right align */
 }
 
-#quote-box .buttons .button {
+.quote-box__buttons {
+  width: 100%;
+  margin: 20px 0 0 0;
+  display: flex; /* Use flexbox for button layout */
+  justify-content: space-between; /* Distribute buttons evenly */
+}
+
+.quote-box__buttons__button {
   height: 38px;
   border: none;
   border-radius: 5px;
@@ -86,25 +99,27 @@ body {
   background-color: #353;
   outline: none;
   font-size: 0.9em;
-  padding: 8px 18px 6px 18px;
-  margin-top: 30px;
-  opacity: 1;
+  padding: 8px 0px;
   cursor: pointer;
+  flex: 1; /* Allow buttons to expand equally */
+  margin: 0 5px; /* Add some spacing between buttons */
+  text-align: center;
+  text-decoration: none; /* remove underline from <a> tag */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#quote-box .buttons .button:hover {
+
+.quote-box__buttons__button:hover {
   opacity: 0.8;
 }
-#quote-box .buttons .button#tweet-quote,
-#quote-box .buttons .button#tumblr-quote {
-  float: left;
-  padding: 0px;
-  padding-top: 8px;
-  text-align: center;
+
+.quote-box__buttons__button#tweet-quote i,
+.quote-box__buttons__button#tumblr-quote i {
   font-size: 1.3em;
-  margin-right: 5px;
-  height: 30px;
-  width: 40px;
 }
-#quote-box .buttons .button#new-quote {
-  float: right;
+
+.quote-box__buttons__button#new-quote {
+  font-size: 1.3em;
+  padding: 27px 0 27px 0;
 }
