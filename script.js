@@ -7,10 +7,8 @@
 */
 
 const projectName = "random-quote-machine";
-
 let quotesData;
-
-var colors = [
+const colors = [
   "#26a085",
   "#079e60",
   "#4c3e50",
@@ -27,8 +25,8 @@ var colors = [
   "#1122ff",
   "#64B968",
 ];
-var currentQuote = "",
-  currentAuthor = "";
+let currentQuote = "";
+let currentAuthor = "";
 
 /* 
 2. The getQuotes() function uses jQuery's AJAX functionality to fetch quotes data from a specified URL. 
@@ -38,16 +36,18 @@ var currentQuote = "",
 
 function getQuotes() {
   return $.ajax({
-    headers: {
-      Accept: "application/json",
-    },
+    headers: { Accept: "application/json" },
     url: "https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json",
     success: function (jsonQuotes) {
-      if (typeof jsonQuotes === "string") {
-        quotesData = JSON.parse(jsonQuotes);
-        console.log("quotesData");
-        console.log(quotesData);
-      }
+      quotesData =
+        typeof jsonQuotes === "string" ? JSON.parse(jsonQuotes) : jsonQuotes;
+      console.log("quotesData:", quotesData);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error fetching quotes:", textStatus, errorThrown);
+      // Provide a fallback or user-friendly message
+      $("#text").text("Failed to load quotes.");
+      $("#author").text("");
     },
   });
 }
@@ -58,6 +58,10 @@ function getQuotes() {
 */
 
 function getRandomQuote() {
+  if (!quotesData || !quotesData.quotes || quotesData.quotes.length === 0) {
+    console.error("No quotes data available.");
+    return { quote: "No quotes available.", author: "" }; // Provide a default quote
+  }
   return quotesData.quotes[
     Math.floor(Math.random() * quotesData.quotes.length)
   ];
@@ -71,8 +75,7 @@ function getRandomQuote() {
 */
 
 function getQuote() {
-  let randomQuote = getRandomQuote();
-
+  const randomQuote = getRandomQuote();
   currentQuote = randomQuote.quote;
   currentAuthor = randomQuote.author;
 
@@ -91,30 +94,19 @@ function getQuote() {
       "&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button"
   );
 
-  $(".quote-text").animate({ opacity: 0 }, 500, function () {
+  $(".quote-box__quote-text").animate({ opacity: 0 }, 500, function () {
     $(this).animate({ opacity: 1 }, 500);
     $("#text").text(randomQuote.quote);
   });
 
-  $(".quote-author").animate({ opacity: 0 }, 500, function () {
+  $(".quote-box__quote-author").animate({ opacity: 0 }, 500, function () {
     $(this).animate({ opacity: 1 }, 500);
     $("#author").html(randomQuote.author);
   });
 
-  var color = Math.floor(Math.random() * colors.length);
-  $("html body").animate(
-    {
-      backgroundColor: colors[color],
-      color: colors[color],
-    },
-    1000
-  );
-  $(".button").animate(
-    {
-      backgroundColor: colors[color],
-    },
-    1000
-  );
+  const color = colors[Math.floor(Math.random() * colors.length)];
+  $("body").animate({ backgroundColor: color, color: color }, 1000); // Animate body
+  $(".quote-box__buttons__button").animate({ backgroundColor: color }, 1000);
 }
 
 /* 
@@ -126,9 +118,13 @@ It takes a callback function that will be executed once the getQuotes() function
 */
 
 $(document).ready(function () {
-  getQuotes().then(() => {
-    getQuote();
-  });
+  getQuotes()
+    .then(getQuote)
+    .catch((error) => {
+      console.error("Initial quote fetch failed:", error);
+      $("#text").text("Failed to load quotes.");
+      $("#author").text("");
+    });
 
   $("#new-quote").on("click", getQuote);
 });
